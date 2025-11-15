@@ -179,12 +179,12 @@ const HRCVReview = () => {
                       <DialogTrigger asChild>
                         <Button variant="outline" size="sm">View Details</Button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
+                      <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto">
                         <DialogHeader>
                           <DialogTitle>{cv.name}</DialogTitle>
                         </DialogHeader>
                         <div className="space-y-4">
-                          <div className="grid md:grid-cols-2 gap-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-1">
                               <Label className="text-muted-foreground">Email</Label>
                               <p className="font-medium break-all">{cv.email}</p>
@@ -207,7 +207,7 @@ const HRCVReview = () => {
                               </div>
                             )}
                             {cv.experience && (
-                              <div className="space-y-1">
+                              <div className="space-y-1 sm:col-span-2">
                                 <Label className="text-muted-foreground">Experience Snapshot</Label>
                                 <p className="text-sm text-muted-foreground whitespace-pre-line max-h-40 overflow-y-auto border rounded-md p-2 bg-muted/40">
                                   {cv.experience}
@@ -215,7 +215,7 @@ const HRCVReview = () => {
                               </div>
                             )}
                           </div>
-                          <div className="grid md:grid-cols-2 gap-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                               <Label className="text-muted-foreground">Skills</Label>
                               <div className="flex flex-wrap gap-2 mt-2">
@@ -225,7 +225,7 @@ const HRCVReview = () => {
                               </div>
                             </div>
                             {cv.projects && cv.projects.length > 0 && (
-                              <div>
+                              <div className="sm:col-span-2">
                                 <Label className="text-muted-foreground">Highlighted Projects</Label>
                                 <ul className="mt-2 space-y-1 text-sm list-disc list-inside text-muted-foreground max-h-36 overflow-y-auto">
                                   {cv.projects.map((project, idx) => (
@@ -235,7 +235,7 @@ const HRCVReview = () => {
                               </div>
                             )}
                           </div>
-                          <div className="grid md:grid-cols-2 gap-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {cv.certifications && cv.certifications.length > 0 && (
                               <div>
                                 <Label className="text-muted-foreground">Certifications</Label>
@@ -264,7 +264,7 @@ const HRCVReview = () => {
                               <div className="text-sm text-muted-foreground">/ 100</div>
                             </div>
                           </div>
-                          <div className="flex gap-2 pt-4">
+                          <div className="flex flex-col sm:flex-row gap-2 pt-4">
                             <Button 
                               className="flex-1"
                               onClick={() => handleContactViaGmail(cv.email, cv.name)}

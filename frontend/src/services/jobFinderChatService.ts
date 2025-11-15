@@ -34,8 +34,8 @@ class JobFinderChatService {
   private baseUrl: string;
 
   constructor() {
-    // Use the AI backend URL
-    this.baseUrl = import.meta.env.VITE_AI_API_URL || 'http://localhost:8000';
+    // Use the AI backend URL with network IP for mobile access
+    this.baseUrl = import.meta.env.VITE_AI_API_URL || 'http://10.0.2.176:8000';
   }
 
   async sendMessage(request: JobFinderChatRequest): Promise<JobFinderChatResponse> {
