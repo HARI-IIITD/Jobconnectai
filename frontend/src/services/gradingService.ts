@@ -23,8 +23,8 @@ class GradingService {
   private baseUrl: string;
 
   constructor() {
-    // Default to localhost:8001 for the grading backend
-    this.baseUrl = import.meta.env.VITE_GRADING_API_URL || 'http://localhost:8001';
+    // Default to network IP for mobile access
+    this.baseUrl = import.meta.env.VITE_GRADING_API_URL || 'http://10.0.2.176:8001';
   }
 
   async gradeCV(file: File): Promise<CVAnalysisResponse> {

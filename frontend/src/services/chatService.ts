@@ -30,8 +30,8 @@ class ChatService {
   private baseUrl: string;
 
   constructor() {
-    // Default to localhost:8000 for development
-    this.baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+    // Default to network IP for mobile access
+    this.baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://10.0.2.176:8000';
   }
 
   async sendMessage(request: ChatRequest): Promise<ChatResponse> {
