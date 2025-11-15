@@ -1,0 +1,9 @@
+spacy
+pdfplumber
+fastapi
+uvicorn
+python-multipart
+transformers
+torch
+scikit-learn
+python-docx
