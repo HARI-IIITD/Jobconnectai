@@ -1,58 +1,67 @@
-# JobConnectAI 🚀
+# Team Members information
+1. Hari Krishna Sharma (24BDS024) : 24bds024@iiitdwd.ac.in
+2. Aayush Jha (24BDS002) : 24bds002@iiitdwd.ac.in
+3. Jenish Bhati (24BDS027) : 24bds027@iiitdwd.ac.in
+4. Anil Gurjar (24BDS004) : 24bds004@iiitdwd.ac.in  
 
-A comprehensive AI-powered job platform featuring intelligent CV grading, HR chatbot assistance, and personalized career guidance.
+# JobConnectAI �
 
-## ✨ Features
+A modern AI-powered career platform featuring intelligent CV analysis, HR chatbot assistance, and personalized career guidance with a vibrant, engaging user interface.
 
-### 🔍 **AI-Powered HR Chatbot**
-- **RAG Pipeline**: Advanced Retrieval-Augmented Generation for accurate responses
-- **CV Database Search**: Search through 69+ pre-loaded CVs and candidate profiles
-- **Real-time Assistance**: Help HR professionals find suitable candidates
-- **Smart Filtering**: Filter by skills, experience, sector, and more
+## ✨ Key Features
 
-### 📊 **CV Grading System**
-- **AI-Powered Analysis**: Uses machine learning for comprehensive CV evaluation
-- **Competitive Scoring**: Score CVs against others in the same sector (0-100 scale)
-- **Detailed Feedback**: JSON extraction of skills, experience, education, and projects
-- **Multiple Formats**: Support for PDF and DOCX files
-- **Sector Identification**: Automatic sector/role detection using AI
+### 🎯 **Role-Based Platform**
+- **HR Portal**: Advanced candidate search and CV review system
+- **Job Finder Portal**: Personalized career guidance and CV improvement tools
+- **Unified Authentication**: Secure login system for both user types
 
-### 🎯 **Job Finder Dashboard**
-- **CV Upload & Analysis**: Upload CV for instant grading and feedback
-- **Personalized Career Assistant**: AI chatbot that knows your CV and provides tailored advice
-- **Score Improvement Tips**: Get specific recommendations to improve your CV score
-- **Career Guidance**: Sector-specific career advice and skill recommendations
+### 🤖 **AI-Powered HR Assistant**
+- **RAG Pipeline**: Advanced Retrieval-Augmented Generation using ChromaDB
+- **Smart Candidate Search**: Query through 69+ pre-loaded CVs using natural language
+- **Real-time Filtering**: Filter by skills, experience, sector, and resume scores
+- **Interactive Chat Interface**: Modern messaging UI with typing indicators
 
-### ⚡ **Performance Optimized**
-- **Fast Response Times**: Optimized for 8-12 second responses
-- **Smart Context Handling**: Intelligent CV context processing
-- **Error Handling**: Comprehensive timeout and error management
-- **Responsive Design**: Modern UI built with React and TypeScript
+### 📊 **Intelligent CV Grading**
+- **AI-Powered Analysis**: Machine learning-based comprehensive CV evaluation
+- **Competitive Scoring**: Score CVs against sector benchmarks (0-100 scale)
+- **Detailed JSON Extraction**: Skills, experience, education, projects, and certifications
+- **Multi-format Support**: PDF and DOCX file processing
+- **Automatic Sector Detection**: AI-powered role/sector classification
 
-## 🏗️ Architecture
+### 💫 **Modern User Experience**
+- **Vibrant Light Blue Theme**: Professional yet engaging color scheme
+- **Glass Morphism Design**: Modern translucent UI elements
+- **Rich Animations**: Floating elements, hover effects, and micro-interactions
+- **Mobile-First Responsive**: Optimized for all screen sizes
+- **Accessibility Features**: High contrast and readable typography
+
+## 🏗️ Technical Architecture
 
 ```
 JobConnectAI/
-├── frontend/                 # React + TypeScript frontend
+├── frontend/                    # React + TypeScript Frontend
 │   ├── src/
-│   │   ├── pages/           # HR and Job Finder pages
-│   │   ├── services/        # API services for chat and grading
-│   │   ├── components/      # UI components (shadcn/ui)
-│   │   └── lib/            # Storage and utilities
-├── AI backend/              # FastAPI AI chatbot backend
+│   │   ├── pages/              # Role-specific pages
+│   │   │   ├── hr/             # HR dashboard and CV review
+│   │   │   └── job-finder/     # Job finder portal
+│   │   ├── components/         # shadcn/ui components
+│   │   ├── services/           # API integration services
+│   │   ├── lib/               # Storage and utilities
+│   │   └── index.css          # Global styling and animations
+├── AI backend/                 # FastAPI AI Chatbot Backend
 │   ├── models/
-│   │   ├── rag_pipeline.py # RAG implementation
-│   │   ├── vector_database.py # ChromaDB integration
-│   │   └── main.py         # FastAPI application
-│   └── scrapers/           # Web scraping utilities
-├── grading backend/         # FastAPI CV grading backend
+│   │   ├── rag_pipeline.py    # RAG implementation
+│   │   ├── vector_database.py # ChromaDB vector storage
+│   │   └── main.py           # FastAPI application
+│   └── requirements.txt       # Python dependencies
+├── grading backend/            # FastAPI CV Grading Backend
 │   ├── src/
-│   │   ├── api_server.py   # Grading API server
-│   │   ├── parsing/        # CV text extraction
-│   │   ├── scoring/        # CV scoring algorithms
-│   │   └── nlp/            # NLP processing
-│   └── requirements.txt    # Python dependencies
-└── README.md               # This file
+│   │   ├── api_server.py     # Grading API server
+│   │   ├── parsing/          # Document text extraction
+│   │   ├── scoring/          # CV scoring algorithms
+│   │   └── nlp/              # NLP processing
+│   └── requirements.txt       # Python dependencies
+└── README.md                  # This documentation
 ```
 
 ## 🚀 Quick Start
@@ -64,14 +73,14 @@ JobConnectAI/
 - **Ollama** with `qwen2.5:7b` model
 - **Git**
 
-### 1. Clone the Repository
+### 1. Clone Repository
 
 ```bash
 git clone <your-repository-url>
 cd JobConnectAI
 ```
 
-### 2. Setup Frontend
+### 2. Frontend Setup
 
 ```bash
 cd frontend
@@ -79,75 +88,82 @@ npm install
 npm run dev
 ```
 
-Frontend will be available at: `http://localhost:8080`
+**Frontend available at:** `http://localhost:8080`
 
-### 3. Setup AI Backend
+### 3. Start AI Backend
 
 ```bash
-cd "../AI backend"
-pip install -r requirements.txt
+# Navigate to AI backend
+cd "AI backend/models"
 
-# Download spaCy model
-python -m spacy download en_core_web_sm
+# Activate virtual environment
+# On Windows:
+cd .. && venv\Scripts\activate && cd models
+# On macOS/Linux:
+cd .. && source venv/bin/activate && cd models
 
-# Start the backend
-cd models
-python main.py
-```
+# Start the AI backend server using uvicorn
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
 
-AI Backend will be available at: `http://localhost:8000`
+# Expected output:
+# INFO:     Started server process [xxxx]
+# INFO:     Waiting for application startup.
+# INFO:     Application startup complete.
+# INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 
-### 4. Setup Grading Backend
+**AI Backend available at:** `http://localhost:8000`
+
+### 4. Grading Backend Setup
 
 ```bash
 cd "../../grading backend"
 pip install -r requirements.txt
 
-# Download spaCy model
+# Download required NLP model
 python -m spacy download en_core_web_sm
 
-# Start the backend
+# Start the grading backend
 cd src
 python api_server.py
 ```
 
-Grading Backend will be available at: `http://localhost:8001`
+**Grading Backend available at:** `http://localhost:8001`
 
-### 5. Setup Ollama
+### 5. Ollama Setup
 
 ```bash
-# Install Ollama (if not already installed)
-# https://ollama.ai/download
+# Install Ollama from https://ollama.ai/download
 
-# Pull the required model
+# Pull the required AI model
 ollama pull qwen2.5:7b
 
 # Start Ollama service
 ollama serve
 ```
 
-## 🎮 Usage Guide
+## 🎮 User Guide
 
-### **For HR Professionals**
+### **HR Professionals Workflow**
 
-1. **Login**: Use credentials like `hr@jobconnect.com` / `password`
-2. **AI Chatbot**: Ask questions to find suitable candidates
-   - "Find business analysts with Python experience"
-   - "Show me candidates with React skills"
-   - "Who has experience in fintech?"
-3. **CV Review**: Browse and review candidate profiles
+1. **Login**: Use HR credentials to access the dashboard
+2. **AI Assistant**: Interact with the chatbot to find candidates
+   - *"Find business analysts with Python experience"*
+   - *"Show me candidates with React skills and high scores"*
+   - *"Who has fintech experience?"*
+3. **CV Review**: Browse filtered candidate profiles with animated cards
+4. **Contact Candidates**: Direct email integration for outreach
 
-### **For Job Seekers**
+### **Job Seekers Workflow**
 
-1. **Sign Up**: Create a new account or login
-2. **Upload CV**: Upload your CV (PDF/DOCX) for instant grading
-3. **View Analysis**: See your score and detailed JSON breakdown
-4. **Get Career Advice**: Chat with AI assistant for personalized guidance
-   - "How can I improve my CV score?"
-   - "What skills should I learn for my career?"
-   - "How do I prepare for interviews in my field?"
+1. **Sign Up**: Create a personalized account
+2. **Upload CV**: Submit PDF/DOCX for instant AI analysis
+3. **View Results**: See detailed score breakdown and recommendations
+4. **Career Guidance**: Chat with AI assistant for personalized advice
+   - *"How can I improve my CV score?"*
+   - *"What skills should I learn for my target role?"*
+   - *"How do I prepare for technical interviews?"*
 
-### **Default Login Credentials**
+## 🔐 Default Credentials
 
 **HR Accounts:**
 - Username: `hr@jobconnect.com` | Password: `password`
@@ -155,61 +171,75 @@ ollama serve
 - Username: `sarah.jones@globalsolutions.com` | Password: `password`
 
 **Job Finder:**
-- Create your own account or use existing credentials
+- Create your own account through the signup process
 
-## 🛠️ Technical Stack
+## 🛠️ Technology Stack
 
-### **Frontend**
-- **React 18** with TypeScript
-- **Vite** for fast development
-- **TailwindCSS** for styling
-- **shadcn/ui** for components
-- **React Router** for navigation
-- **Sonner** for notifications
+### **Frontend Technologies**
+- **React 18** with TypeScript for type safety
+- **Vite** for lightning-fast development
+- **TailwindCSS** for responsive styling
+- **shadcn/ui** for modern UI components
+- **React Router** for seamless navigation
+- **Sonner** for elegant notifications
+- **Lucide React** for beautiful icons
 
-### **AI Backend**
-- **FastAPI** for REST API
-- **ChromaDB** for vector storage
-- **Ollama** for LLM integration
-- **spaCy** for NLP processing
-- **Transformers** for AI models
+### **AI/ML Infrastructure**
+- **FastAPI** for high-performance REST APIs
+- **ChromaDB** for vector similarity search
+- **Ollama** for local LLM deployment
+- **spaCy** for advanced NLP processing
+- **Transformers** for AI model integration
+- **Scikit-learn** for text analysis
 
-### **Grading Backend**
-- **FastAPI** for REST API
-- **spaCy** for text processing
-- **Transformers** for sector classification
-- **Scikit-learn** for TF-IDF scoring
-- **python-docx** for document parsing
+### **Design & UX**
+- **Glass Morphism** effects for modern aesthetics
+- **CSS Animations** with keyframes and transitions
+- **Mobile-First** responsive design
+- **Accessibility** optimized with proper contrast ratios
+- **Vibrant Light Blue** color theme for professional appeal
 
-### **AI/ML Models**
-- **qwen2.5:7b** for chatbot responses
-- **en_core_web_sm** for NLP processing
-- **Zero-shot classification** for sector detection
-- **TF-IDF + Cosine Similarity** for CV scoring
-
-## 📊 API Endpoints
+## 📊 API Documentation
 
 ### **AI Backend** (`localhost:8000`)
-- `GET /api/health` - Health check
-- `POST /api/chat` - Send chat messages
-- `GET /api/search` - Search CV database
-- `GET /api/stats` - Get system statistics
+```http
+GET  /api/health          # Service health check
+POST /api/chat           # Send messages to AI assistant
+GET  /api/search         # Search CV database
+GET  /api/stats          # System statistics
+```
 
 ### **Grading Backend** (`localhost:8001`)
-- `GET /api/health` - Health check
-- `POST /api/grade` - Grade CV file
-- `GET /api/sectors` - Get available sectors
+```http
+GET  /api/health         # Service health check
+POST /api/grade          # Grade uploaded CV files
+GET  /api/sectors        # Available career sectors
+```
 
-## 🧪 Testing
+## 🎨 UI/UX Features
 
-### **Run Integration Tests**
+### **Animations & Interactions**
+- **Floating Background Elements**: Animated light blue orbs
+- **Hover Effects**: Scale, glow, and neon effects
+- **Micro-interactions**: Bouncing logos and pulsing icons
+- **Staggered Animations**: Progressive element appearance
+- **Glass Effects**: Translucent cards with backdrop blur
 
+### **Responsive Design**
+- **Mobile Optimized**: Touch-friendly interfaces
+- **Tablet Support**: Adaptive layouts for all devices
+- **Desktop Enhancement**: Full-featured experience
+- **Performance Optimized**: Smooth 60fps animations
+
+## 🧪 Testing & Development
+
+### **Run Tests**
 ```bash
-# Test AI backend
+# Test AI backend integration
 cd "AI backend/models"
 python test_integration.py
 
-# Test grading backend
+# Test grading system
 cd "../../grading backend"
 python test_grading_integration.py
 
@@ -217,11 +247,15 @@ python test_grading_integration.py
 python test_cv_aware_chatbot.py
 ```
 
-## 🔧 Configuration
+### **Development Tools**
+- **Hot Reload**: Instant development feedback
+- **TypeScript**: Type-safe development
+- **ESLint**: Code quality enforcement
+- **Prettier**: Consistent code formatting
+
+## ⚙️ Configuration
 
 ### **Environment Variables**
-
-Create `.env` files in each backend directory:
 
 **AI Backend (.env):**
 ```env
@@ -235,73 +269,56 @@ VITE_AI_API_URL=http://localhost:8000
 VITE_GRADING_API_URL=http://localhost:8001
 ```
 
-## 🚀 Performance Optimizations
+## 🚀 Performance Features
 
-- **Response Times**: Optimized to 8-12 seconds
-- **Token Limits**: Reduced for faster generation
-- **Document Retrieval**: Limited to essential documents
-- **CV Context**: Smart processing with fallbacks
-- **Caching**: Implemented for frequently accessed data
+- **Optimized Response Times**: 8-12 second AI responses
+- **Smart Token Management**: Efficient LLM usage
+- **Vector Database Caching**: Fast candidate retrieval
+- **Progressive Loading**: Smooth user experience
+- **Mobile Performance**: Optimized for touch devices
 
-## 🐛 Troubleshooting
+## � Troubleshooting
 
-### **Common Issues**
+### **Common Solutions**
 
-1. **Ollama Connection Error**
+1. **Ollama Connection Issues**
    ```bash
-   # Check if Ollama is running
    ollama list
-   
-   # Restart Ollama service
    ollama serve
    ```
 
-2. **Spacy Model Not Found**
+2. **Missing NLP Models**
    ```bash
    python -m spacy download en_core_web_sm
    ```
 
-3. **Port Already in Use**
+3. **Port Conflicts**
    ```bash
-   # Find and kill process on port
    netstat -ano | findstr :8000
    taskkill /PID <PID> /F
    ```
 
-4. **Frontend Build Issues**
+4. **Frontend Issues**
    ```bash
-   # Clear node modules and reinstall
    rm -rf node_modules package-lock.json
    npm install
    ```
 
-## 🤝 Contributing
+## 🤝 Contributing Guidelines
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+2. Create feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push branch: `git push origin feature/amazing-feature`
+5. Open Pull Request
 
 ## 🙏 Acknowledgments
 
-- **Ollama** for providing the LLM infrastructure
-- **FastAPI** for the modern Python web framework
-- **React** and **TypeScript** for the frontend framework
-- **shadcn/ui** for the beautiful UI components
-- **ChromaDB** for the vector database
+- **Ollama** for local LLM infrastructure
+- **FastAPI** for modern Python web framework
+- **React & TypeScript** for robust frontend development
+- **shadcn/ui** for beautiful component library
+- **ChromaDB** for efficient vector storage
+- **TailwindCSS** for utility-first styling
 
-## 📞 Support
-
-For support and questions:
-- Create an issue in the repository
-- Check the troubleshooting section above
-- Review the API documentation
-
----
-
-**Built with ❤️ for job seekers and HR professionals**
+**Built with 💎 and modern AI technology for career advancement**

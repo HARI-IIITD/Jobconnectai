@@ -33,31 +33,33 @@ const JobFinderLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-secondary via-background to-secondary flex items-center justify-center p-4">
-      <Card className="w-full max-w-md animate-fade-in shadow-lg">
-        <CardHeader className="space-y-4">
+    <div className="min-h-screen hero-gradient flex items-center justify-center p-4">
+      <Card className="w-full max-w-md animate-fade-in glass-effect border-border/20 hover-neon">
+        <CardHeader className="space-y-4 pb-6">
           <Button
             variant="ghost"
             size="sm"
-            className="w-fit"
+            className="w-fit hover:bg-white/10 hover-zoom"
             onClick={() => navigate('/')}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
           </Button>
           <div className="flex items-center justify-center space-x-3">
-            <img src={appLogo} alt="Logo" className="w-12 h-12" />
-            <Search className="w-8 h-8 text-primary" />
+            <img src={appLogo} alt="Logo" className="w-16 h-16 hover-bounce" />
+            <div className="w-12 h-12 rounded-2xl gradient-bg flex items-center justify-center hover-scale">
+              <Search className="w-6 h-6 text-white" />
+            </div>
           </div>
-          <CardTitle className="text-2xl text-center">Job Finder Login</CardTitle>
-          <CardDescription className="text-center">
+          <CardTitle className="text-xl md:text-2xl text-center font-bold gradient-text">Job Finder Login</CardTitle>
+          <CardDescription className="text-center text-sm md:text-base">
             Sign in to continue your job search
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <form onSubmit={handleLogin} className="space-y-4">
+        <CardContent className="px-6 pb-6">
+          <form onSubmit={handleLogin} className="space-y-5">
             <div className="space-y-2 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-sm font-bold">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -65,11 +67,11 @@ const JobFinderLogin = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="transition-all duration-200 focus:scale-105"
+                className="h-12 glass-effect border-border/20 focus:border-primary/50 hover-glow"
               />
             </div>
             <div className="space-y-2 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-sm font-bold">Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -77,12 +79,12 @@ const JobFinderLogin = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="transition-all duration-200 focus:scale-105"
+                className="h-12 glass-effect border-border/20 focus:border-primary/50 hover-glow"
               />
             </div>
             <Button 
               type="submit" 
-              className="w-full animate-fade-in hover:scale-105 transition-transform duration-200" 
+              className="w-full h-12 animate-fade-in gradient-bg hover-neon font-bold text-base" 
               disabled={isLoading}
               style={{ animationDelay: '0.3s', animationFillMode: 'backwards' }}
             >
@@ -93,7 +95,7 @@ const JobFinderLogin = () => {
               <span className="text-muted-foreground">Don't have an account? </span>
               <Button 
                 variant="link" 
-                className="p-0 h-auto font-semibold hover:scale-105 transition-transform"
+                className="p-0 h-auto font-bold hover:scale-105 transition-transform text-primary"
                 onClick={() => navigate('/job-finder/signup')}
               >
                 Sign up here

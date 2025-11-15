@@ -161,26 +161,26 @@ const JobFinderChatbot = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-secondary via-background to-secondary">
-      <header className="bg-card border-b border-border shadow-sm">
+    <div className="min-h-screen hero-gradient">
+      <header className="glass-effect border-b border-border/20 shadow-xl">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Button variant="ghost" size="sm" onClick={() => navigate('/job-finder/dashboard')}>
+            <Button variant="ghost" size="sm" onClick={() => navigate('/job-finder/dashboard')} className="hover:bg-white/10 hover-zoom">
               <ArrowLeft className="w-4 h-4" />
             </Button>
-            <img src={appLogo} alt="Logo" className="w-8 h-8" />
-            <h1 className="text-lg font-bold text-foreground">AI Career Assistant</h1>
+            <img src={appLogo} alt="Logo" className="w-10 h-10 hover-bounce" />
+            <h1 className="text-xl font-black gradient-text">AI Career Assistant</h1>
           </div>
           <div className="flex items-center space-x-2">
             {cvData && (
               <div className="flex items-center space-x-2 mr-3">
-                <FileText className="w-4 h-4 text-primary" />
-                <span className="text-xs text-muted-foreground hidden sm:inline">
+                <FileText className="w-5 h-5 text-primary" />
+                <span className="text-sm text-foreground font-bold hidden sm:inline">
                   Score: {cvData.score}/100
                 </span>
               </div>
             )}
-            <Button variant="outline" size="sm" onClick={resetChat}>
+            <Button variant="outline" size="sm" onClick={resetChat} className="glass-effect hover-neon border-border/20 font-bold">
               Reset
             </Button>
           </div>
@@ -189,7 +189,7 @@ const JobFinderChatbot = () => {
 
       <main className="container mx-auto px-4 py-6 max-w-4xl">
         {isHealthy === false && (
-          <Card className="mb-4 border-orange-200 bg-orange-50">
+          <Card className="mb-4 border-orange-200 bg-orange-50 glass-effect hover-neon">
             <CardContent className="pt-4">
               <div className="flex items-center space-x-3 text-orange-800">
                 <AlertCircle className="w-5 h-5" />
@@ -204,15 +204,15 @@ const JobFinderChatbot = () => {
           </Card>
         )}
 
-        <Card className="animate-fade-in">
+        <Card className="glass-effect animate-fade-in hover-neon">
           <CardHeader className="text-center space-y-3 pb-4">
-            <div className="mx-auto w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-              <Sparkles className="w-6 h-6 text-primary" />
+            <div className="mx-auto w-14 h-14 rounded-full gradient-bg flex items-center justify-center hover-bounce">
+              <Sparkles className="w-7 h-7 text-white" />
             </div>
-            <CardTitle className="text-xl">
+            <CardTitle className="text-2xl font-black gradient-text">
               {cvData ? "Personalized Career Assistant" : "AI Career Assistant"}
             </CardTitle>
-            <CardDescription className="text-sm">
+            <CardDescription className="text-sm text-foreground font-bold">
               {cvData 
                 ? "Get personalized advice based on your CV profile and career goals"
                 : "Upload your CV to get personalized career advice, or ask general questions"
@@ -222,7 +222,7 @@ const JobFinderChatbot = () => {
 
           <CardContent className="space-y-4">
             {/* Messages */}
-            <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 h-[500px] overflow-y-auto space-y-4">
+            <div className="glass-effect rounded-2xl p-4 h-[500px] overflow-y-auto space-y-4">
               {messages.map((message) => (
                 <div
                   key={message.id}
@@ -231,25 +231,25 @@ const JobFinderChatbot = () => {
                   <div
                     className={`max-w-[80%] lg:max-w-[60%] px-4 py-3 rounded-2xl ${
                       message.sender === 'user'
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700'
+                        ? 'gradient-bg text-white shadow-lg hover-scale'
+                        : 'glass-effect text-foreground border border-border/20 hover-glow'
                     }`}
                   >
                     <div className="flex items-center space-x-2 mb-2">
                       {message.sender === 'user' ? (
-                        <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                        <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center hover-wiggle">
                           <User className="w-3 h-3" />
                         </div>
                       ) : (
-                        <div className="w-5 h-5 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+                        <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center hover-wiggle">
                           <Bot className="w-3 h-3" />
                         </div>
                       )}
-                      <span className="text-xs font-medium opacity-70">
+                      <span className="text-xs font-bold opacity-70">
                         {message.sender === 'user' ? 'You' : 'AI Assistant'}
                       </span>
                     </div>
-                    <p className="text-sm leading-relaxed whitespace-pre-wrap break-words">
+                    <p className="text-sm leading-relaxed whitespace-pre-wrap break-words font-medium">
                       {message.content}
                     </p>
                   </div>
@@ -258,14 +258,14 @@ const JobFinderChatbot = () => {
               
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="max-w-[80%] lg:max-w-[60%] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 px-4 py-3 rounded-2xl">
+                  <div className="max-w-[80%] lg:max-w-[60%] glass-effect text-foreground border border-border/20 px-4 py-3 rounded-2xl hover-glow">
                     <div className="flex items-center space-x-3">
-                      <div className="w-5 h-5 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center animate-pulse">
                         <Bot className="w-3 h-3" />
                       </div>
                       <div className="flex items-center space-x-2">
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        <span className="text-sm">Thinking...</span>
+                        <span className="text-sm font-bold">Thinking...</span>
                       </div>
                     </div>
                   </div>
@@ -277,16 +277,16 @@ const JobFinderChatbot = () => {
 
             {/* Sources */}
             {sources.length > 0 && (
-              <div className="space-y-2">
-                <h4 className="text-sm font-medium flex items-center">
+              <div className="glass-effect p-4 rounded-2xl border border-border/20">
+                <h4 className="text-sm font-bold gradient-text flex items-center mb-3">
                   <Lightbulb className="w-4 h-4 mr-2" />
                   Sources
                 </h4>
                 <div className="space-y-2 max-h-32 overflow-y-auto">
                   {sources.map((source, index) => (
-                    <div key={index} className="text-xs p-2 bg-gray-100 dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700">
-                      <div className="font-medium">{source.title}</div>
-                      <div className="text-gray-600 dark:text-gray-400">{source.category}</div>
+                    <div key={index} className="text-xs p-3 glass-effect rounded-xl border border-border/10">
+                      <div className="font-bold text-foreground">{source.title}</div>
+                      <div className="text-muted-foreground mt-1">{source.category}</div>
                     </div>
                   ))}
                 </div>
@@ -296,15 +296,15 @@ const JobFinderChatbot = () => {
             {/* Suggested Questions */}
             {suggestedQuestions.length > 0 && messages.length <= 1 && (
               <div className="space-y-3">
-                <h4 className="text-sm font-medium text-gray-600 dark:text-gray-400">Get started with these questions:</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <h4 className="text-sm font-bold gradient-text">Get started with these questions:</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {suggestedQuestions.slice(0, 4).map((question, index) => (
                     <Button
                       key={index}
                       variant="outline"
                       size="sm"
                       onClick={() => handleSuggestedQuestion(question)}
-                      className="text-xs h-auto py-2 px-3 whitespace-normal text-left justify-start"
+                      className="text-xs h-auto py-3 px-4 whitespace-normal text-left justify-start glass-effect hover-glow border-border/20"
                     >
                       {question}
                     </Button>
@@ -314,7 +314,7 @@ const JobFinderChatbot = () => {
             )}
 
             {/* Input */}
-            <div className="flex space-x-2">
+            <div className="flex space-x-3">
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -325,12 +325,13 @@ const JobFinderChatbot = () => {
                     : "Ask about career development, resume writing, interview preparation..."
                 }
                 disabled={isLoading}
-                className="flex-1"
+                className="flex-1 glass-effect border-border/20 focus:border-primary/50"
               />
               <Button 
                 onClick={handleSendMessage} 
                 disabled={isLoading || !input.trim()}
                 size="sm"
+                className="gradient-bg hover-glow px-6"
               >
                 {isLoading ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
