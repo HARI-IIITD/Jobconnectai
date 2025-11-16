@@ -101,6 +101,13 @@ npm run dev
 
 **Frontend available at:** `http://localhost:8080`
 
+> **📱 Mobile Testing Note:**  
+> This application is optimized for mobile viewing! To test on your phone:  
+> 1. Connect your phone and PC to the same WiFi network  
+> 2. Start the frontend with `npm run dev -- --host`  
+> 3. Access the network host URL shown (e.g., `http://10.0.2.176:8080/`) on your phone  
+> 4. Experience the full mobile-optimized interface with touch gestures and responsive design
+
 ### 3. Start AI Backend
 
 ```bash
