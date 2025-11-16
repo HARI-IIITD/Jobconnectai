@@ -8,6 +8,17 @@
 
 A modern AI-powered career platform featuring intelligent CV analysis, HR chatbot assistance, and personalized career guidance with a vibrant, engaging user interface.
 
+## 🎥 Demo Video
+
+**(https://youtube.com/shorts/bqrZfp2_drs?feature=share)**
+
+See JobConnectAI in action! This quick demo showcases:
+- **HR Portal**: AI-powered candidate search and CV review
+- **Job Seeker Portal**: CV upload, grading, and career guidance
+- **AI Chatbot**: Natural language queries and personalized responses
+- **Modern UI**: Glass morphism design and smooth animations
+
+
 ## ✨ Key Features
 
 ### 🎯 **Role-Based Platform**
